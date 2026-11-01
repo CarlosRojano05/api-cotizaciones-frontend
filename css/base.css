@@ -1,0 +1,83 @@
+/* ============================================================
+   BASE: colores, tipografía y reinicio de estilos.
+   Todo el diseño usa estas "variables" (--nombre). Para cambiar un color en toda la app,
+   se cambia aquí. El color de marca (--color-primario) lo reemplaza JavaScript con el de la empresa.
+   ============================================================ */
+:root {
+  /* Marca (se sobrescribe con el color de la empresa) */
+  --color-primario: #1F4E79;
+  --color-sobre-primario: #ffffff;
+  --color-primario-texto: #1F4E79;
+  --color-primario-oscuro: color-mix(in srgb, var(--color-primario) 82%, black);
+  --color-primario-claro: color-mix(in srgb, var(--color-primario) 9%, white);
+  --color-primario-medio: color-mix(in srgb, var(--color-primario) 22%, white);
+
+  /* Neutros */
+  --fondo: #f3f5f9;
+  --superficie: #ffffff;
+  --borde: #e1e6ee;
+  --borde-fuerte: #c9d1de;
+  --texto: #1b2433;
+  --texto-suave: #5d6a80;
+
+  /* Semánticos */
+  --ok: #16794c;       --ok-fondo: #e5f5ec;
+  --alerta: #8a5a00;   --alerta-fondo: #fff1cc;
+  --peligro: #b42318;  --peligro-fondo: #fdeceb;
+  --info: #1d5fb4;     --info-fondo: #e6f0fc;
+
+  --radio: 10px;
+  --radio-chico: 7px;
+  --sombra: 0 1px 2px rgba(16, 24, 40, .05), 0 1px 3px rgba(16, 24, 40, .07);
+  --sombra-grande: 0 16px 40px rgba(16, 24, 40, .22);
+  --ancho-barra: 250px;
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+body.modal-abierto { overflow: hidden; }
+
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: 1.55rem; line-height: 1.2; letter-spacing: -.01em; }
+h2 { font-size: 1.15rem; }
+h3 { font-size: 1rem; }
+
+a { color: var(--color-primario-texto); }
+a:hover { text-decoration: none; }
+
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+img, svg { max-width: 100%; }
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-primario) 55%, white);
+  outline-offset: 2px;
+}
+
+[hidden] { display: none !important; }
+
+.cargando-inicial { padding: 2rem; text-align: center; color: var(--texto-suave); }
+
+.solo-lector {   /* texto solo para lectores de pantalla */
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.derecha { text-align: right; }
+.centro { text-align: center; }
+.suave { color: var(--texto-suave); }
+.pequeno { font-size: .86rem; }
+.negrita { font-weight: 600; }
+.nowrap { white-space: nowrap; }
